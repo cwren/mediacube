@@ -13,8 +13,8 @@ jpegtopnm images/light.jpeg | pamflip -rotate270 | pnmtojpeg > images/t.jpeg
 # right
 jpegtopnm images/light.jpeg | pamflip -rotate90 | pnmtojpeg > images/r.jpeg
 # left
-jpegtopnm images/dark.jpeg | pamflip -rotate90 | pnmtojpeg > images/l.jpeg
+cp images/dark.jpeg images/l.jpeg
 # bottom
-cp images/dark.jpeg images/b.jpeg
+jpegtopnm images/dark.jpeg | pamflip -rotate90 | pnmtojpeg > images/b.jpeg
 # back
 jpegtopnm images/dark.jpeg | pamflip -rotate90 | pnmtojpeg > images/k.jpeg
