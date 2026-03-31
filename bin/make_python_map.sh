@@ -8,24 +8,28 @@ jpegtopnm images/light.jpeg > ppm/light.ppm
 jpegtopnm images/dark.jpeg > ppm/dark.ppm
 
 # front
-pnmpaste -replace ppm/light.ppm 256 256 ppm/python_map.ppm > ppm/tmp.ppm
+cat ppm/light.ppm > ppm/front.ppm
+pnmpaste -replace ppm/front.ppm 256 256 ppm/python_map.ppm > ppm/tmp.ppm
 mv ppm/tmp.ppm ppm/python_map.ppm
 # top
-pamflip -rotate270 ppm/light.ppm > ppm/light-top.ppm
-pnmpaste -replace ppm/light-top.ppm 256 0 ppm/python_map.ppm > ppm/tmp.ppm
+pamflip -rotate270 ppm/light.ppm > ppm/top.ppm
+pnmpaste -replace ppm/top.ppm 256 0 ppm/python_map.ppm > ppm/tmp.ppm
 mv ppm/tmp.ppm ppm/python_map.ppm
 # right
-pamflip -rotate90 ppm/light.ppm > ppm/light-right.ppm
-pnmpaste -replace ppm/light-right.ppm 512 256 ppm/python_map.ppm > ppm/tmp.ppm
+pamflip -rotate90 ppm/light.ppm > ppm/right.ppm
+pnmpaste -replace ppm/right.ppm 512 256 ppm/python_map.ppm > ppm/tmp.ppm
 mv ppm/tmp.ppm ppm/python_map.ppm
 # left 
-pnmpaste -replace ppm/dark.ppm 0 256 ppm/python_map.ppm > ppm/tmp.ppm
+cat ppm/dark.ppm > ppm/left.ppm
+pnmpaste -replace ppm/left.ppm 0 256 ppm/python_map.ppm > ppm/tmp.ppm
 mv ppm/tmp.ppm ppm/python_map.ppm
 # bottom
-pnmpaste -replace ppm/dark.ppm 256 512 ppm/python_map.ppm > ppm/tmp.ppm
+pamflip -rotate90 ppm/dark.ppm > ppm/bottom.ppm
+pnmpaste -replace ppm/bottom.ppm 256 512 ppm/python_map.ppm > ppm/tmp.ppm
 mv ppm/tmp.ppm ppm/python_map.ppm
 # back
-pnmpaste -replace ppm/dark.ppm 256 768 ppm/python_map.ppm > ppm/tmp.ppm
+pamflip -rotate270 ppm/dark.ppm > ppm/back.ppm
+pnmpaste -replace ppm/back.ppm 256 768 ppm/python_map.ppm > ppm/tmp.ppm
 mv ppm/tmp.ppm ppm/python_map.ppm
 
 # output
