@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import { TrackballControls } from 'three/examples/jsm/controls/TrackballControls';
 import right_texture from '../images/r.jpeg?inline';
 import left_texture from '../images/l.jpeg?inline';
 import top_texture from '../images/t.jpeg?inline';
@@ -22,7 +22,7 @@ renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
 window.addEventListener( 'resize', onWindowResize );
 
-const controls = new OrbitControls(camera, renderer.domElement);
+const controls = new TrackballControls(camera, renderer.domElement);
 
 const loader = new THREE.TextureLoader();
 const cubeMaterials = [
