@@ -6,7 +6,7 @@ def main():
 
     material = rendering.MaterialRecord()
     material.shader = 'defaultUnlit'
-    material.albedo_img = o3d.io.read_image('uv1.png')
+    material.albedo_img = o3d.io.read_image('images/python_map.jpeg')
 
     cube = o3d.geometry.TriangleMesh.create_box(create_uv_map=True)
     cube.compute_vertex_normals()
