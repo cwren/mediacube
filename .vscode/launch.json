@@ -9,7 +9,28 @@
             "type": "debugpy",
             "request": "launch",
             "program": "${file}",
-            "console": "integratedTerminal"
+            "console": "integratedTerminal",
+        },
+        {
+            "name": "Launch Vite DEV server",
+            "type": "node-terminal",
+            "request": "launch",
+            "command": "npm run dev",
+            "cwd": "${workspaceFolder}",
+        },
+        {
+            "name": "Chrome: http://localhost:5173",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:5173",
+            "webRoot": "${workspaceFolder}/src",
+            "sourceMaps": true,
         }
-    ]
+    ],
+    "compounds": [
+        {
+            "name": "Debug Vite (Compound)",
+            "configurations": ["Launch Vite DEV server", "Chrome: http://localhost:5173"],
+        }
+    ],
 }
