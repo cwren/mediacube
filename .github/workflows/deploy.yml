@@ -15,10 +15,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - name: Use Node.js 25.5
       - uses: actions/setup-node@v6
         with:
-          node-version: 25
+          node-version: 'latest'
           cache: 'npm'
       - run: npm install
       - run: npm run build
