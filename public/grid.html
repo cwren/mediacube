@@ -1,0 +1,114 @@
+</script><script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
+
+<style>
+  body {
+    background-color: black;
+  }
+  .grid-container {
+    background-color: black;
+    width: 256px;
+    height: 256px;
+    display: grid;
+    /* Create 7 equal-width columns */
+    grid-template-columns: repeat(7, 1fr);
+    /* 4px gutter between rows and columns */
+    gap: 4px;
+    padding: 4px; /* Optional: padding around the grid */
+  }
+
+  .grid-item {
+    background-color: #007bff; /* Color of rectangles */
+    /* Rounded corners */
+    border-radius: 8px;
+    /* Aspect ratio to keep them rectangular */
+    aspect-ratio: 16 / 16;
+  }
+
+  .w {
+     background-color: #dddddd; /* Color of rectangles */
+  }
+  .b {
+     background-color: #222222; /* Color of rectangles */
+  }
+</style>
+
+<div class="grid-container" id="capture">
+  <!-- Create 49 items (7x7) -->
+  <div class="grid-item w"></div>
+  <div class="grid-item w"></div>
+  <div class="grid-item w"></div>
+  <div class="grid-item b"></div>
+  <div class="grid-item b"></div>
+  <div class="grid-item b"></div>
+  <div class="grid-item b"></div>
+
+  <div class="grid-item w"></div>
+  <div class="grid-item w"></div>
+  <div class="grid-item w"></div>
+  <div class="grid-item b"></div>
+  <div class="grid-item w"></div>
+  <div class="grid-item w"></div>
+  <div class="grid-item w"></div>
+
+  <div class="grid-item w"></div>
+  <div class="grid-item w"></div>
+  <div class="grid-item w"></div>
+  <div class="grid-item b"></div>
+  <div class="grid-item w"></div>
+  <div class="grid-item w"></div>
+  <div class="grid-item w"></div>
+
+  <div class="grid-item b"></div>
+  <div class="grid-item b"></div>
+  <div class="grid-item b"></div>
+  <div class="grid-item b"></div>
+  <div class="grid-item w"></div>
+  <div class="grid-item w"></div>
+  <div class="grid-item b"></div>
+
+  <div class="grid-item b"></div>
+  <div class="grid-item w"></div>
+  <div class="grid-item w"></div>
+  <div class="grid-item w"></div>
+  <div class="grid-item w"></div>
+  <div class="grid-item w"></div>
+  <div class="grid-item b"></div>
+
+  <div class="grid-item b"></div>
+  <div class="grid-item w"></div>
+  <div class="grid-item w"></div>
+  <div class="grid-item w"></div>
+  <div class="grid-item w"></div>
+  <div class="grid-item w"></div>
+  <div class="grid-item b"></div>
+
+  <div class="grid-item b"></div>
+  <div class="grid-item w"></div>
+  <div class="grid-item w"></div>
+  <div class="grid-item b"></div>
+  <div class="grid-item b"></div>
+  <div class="grid-item b"></div>
+  <div class="grid-item b"></div>
+</div>
+<button id="downloadBtn">Download Image</button>
+
+<script>
+    document.getElementById('downloadBtn').addEventListener('click', function() {
+        const element = document.getElementById('capture');
+        html2canvas(element).then(canvas => {
+            // Convert the canvas to a data URL
+            const image = canvas.toDataURL('image/png', 1.0);
+            
+            // Create a temporary link element to trigger the download
+            const link = document.createElement('a');
+            link.download = 'my-div-image.png'; // Specify the file name
+            link.href = image;
+            
+            // Append link to body and click it to start download
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link); // Clean up the link element
+        });
+    });
+</script>
