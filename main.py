@@ -24,7 +24,12 @@ def main():
 
     cube = o3d.geometry.TriangleMesh.create_box(create_uv_map=True)
     cube.compute_vertex_normals()
-    o3d.visualization.draw({'name': 'box', 'geometry': cube, 'material': material})
+    o3d.visualization.draw({
+        'name': 'box',
+        'geometry': cube,
+        'material': material,
+        'eye': [5.0, 0.0, 0.0],
+    })
 
 
 if __name__ == "__main__":

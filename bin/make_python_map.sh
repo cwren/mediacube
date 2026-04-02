@@ -16,7 +16,7 @@ pamflip -rotate270 ppm/light.ppm > ppm/top.ppm
 pnmpaste -replace ppm/top.ppm 256 0 ppm/python_map.ppm > ppm/tmp.ppm
 mv ppm/tmp.ppm ppm/python_map.ppm
 # right
-pamflip -rotate90 ppm/light.ppm > ppm/right.ppm
+pamflip -rotate180 ppm/dark.ppm > ppm/right.ppm
 pnmpaste -replace ppm/right.ppm 512 256 ppm/python_map.ppm > ppm/tmp.ppm
 mv ppm/tmp.ppm ppm/python_map.ppm
 # left 
@@ -24,11 +24,11 @@ cat ppm/dark.ppm > ppm/left.ppm
 pnmpaste -replace ppm/left.ppm 0 256 ppm/python_map.ppm > ppm/tmp.ppm
 mv ppm/tmp.ppm ppm/python_map.ppm
 # bottom
-pamflip -rotate90 ppm/dark.ppm > ppm/bottom.ppm
+pamflip -rotate90 ppm/light.ppm > ppm/bottom.ppm
 pnmpaste -replace ppm/bottom.ppm 256 512 ppm/python_map.ppm > ppm/tmp.ppm
 mv ppm/tmp.ppm ppm/python_map.ppm
 # back
-pamflip -rotate270 ppm/dark.ppm > ppm/back.ppm
+pamflip -rotate180 ppm/dark.ppm > ppm/back.ppm
 pnmpaste -replace ppm/back.ppm 256 768 ppm/python_map.ppm > ppm/tmp.ppm
 mv ppm/tmp.ppm ppm/python_map.ppm
 
